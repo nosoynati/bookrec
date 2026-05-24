@@ -1,4 +1,5 @@
 import type { Book } from '../lib/hardcoverApi';
+import StarRating from './StarRating';
 
 interface BookCardProps {
   book: Book;
@@ -9,17 +10,6 @@ interface BookCardProps {
 const HARDCOVER_BASE = 'https://hardcover.app/books';
 const PLACEHOLDER = 'https://placehold.co/200x300/e7e5e4/78716c?text=No+Cover';
 
-function StarRating({ rating }: { rating: number }) {
-  const filled = Math.round(rating);
-  return (
-    <span className="stars" aria-label={`${rating.toFixed(1)} out of 5`}>
-      {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className={i < filled ? 'star filled' : 'star'}>★</span>
-      ))}
-      <span className="rating-value">{rating.toFixed(1)}</span>
-    </span>
-  );
-}
 
 export default function BookCard({ book, reason, primary = false }: BookCardProps) {
   const href = `${HARDCOVER_BASE}/${book.slug}`;

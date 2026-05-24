@@ -17,7 +17,8 @@ export type MoodKey =
   | 'reflective'
   | 'cozy'
   | 'tense'
-  | 'inspired';
+  | 'inspired'
+  | 'mischievous';
 
 export interface Mood {
   key: MoodKey;
@@ -57,19 +58,19 @@ const MOODS: Record<MoodKey, Omit<Mood, 'key'>> = {
     label: 'Bored',
     emoji: '⚡',
     message: "Need a jolt? These exciting, fast-paced books will fix that.",
-    tags: ['adventurous', 'exciting', 'tense', 'funny'],
+    tags: ['adventurous', 'exciting', 'funny','mysterious'],
   },
   romantic: {
     label: 'Romantic',
     emoji: '💕',
     message: "Feeling the love? These books are full of heart.",
-    tags: ['romantic', 'emotional', 'lighthearted', 'heartwarming'],
+    tags: ['romantic', 'emotional','heartwarming', 'lighthearted'],
   },
   angry: {
     label: 'Angry',
     emoji: '🔥',
     message: "Channeling some fire? These intense books match that energy.",
-    tags: ['tense', 'dark', 'challenging', 'intense'],
+    tags: ['tense', 'dark',  'intense','challenging'],
   },
   curious: {
     label: 'Curious',
@@ -81,13 +82,13 @@ const MOODS: Record<MoodKey, Omit<Mood, 'key'>> = {
     label: 'Dark',
     emoji: '🌑',
     message: "In a dark place? These books go there with you.",
-    tags: ['dark', 'mysterious', 'tense', 'depressing'],
+    tags: ['dark', 'scarty','mysterious', 'tense', 'depressing'],
   },
   adventurous: {
     label: 'Adventurous',
     emoji: '🗺️',
     message: "Feeling bold? Strap in — these epic reads are ready.",
-    tags: ['adventurous', 'exciting', 'tense', 'epic'],
+    tags: ['adventurous', 'exciting', 'epic'],
   },
   reflective: {
     label: 'Reflective',
@@ -112,6 +113,12 @@ const MOODS: Record<MoodKey, Omit<Mood, 'key'>> = {
     emoji: '✨',
     message: "Riding high on motivation? These books will fuel that spark.",
     tags: ['inspiring', 'hopeful', 'emotional', 'reflective'],
+  },
+  mischievous: {
+    label: 'Mischievous',
+    emoji: '😈',
+    message: "Feeling a little wicked? These cunning, darkly playful reads are just your speed.",
+    tags: ['dark', 'mysterious', 'scary','tense'],
   },
 };
 
@@ -163,6 +170,10 @@ const KEYWORD_MAP: Record<string, MoodKey> = {
   // inspired
   inspired: 'inspired', inspiring: 'inspired', motivated: 'inspired', hopeful: 'inspired',
   optimistic: 'inspired', enthusiastic: 'inspired', determined: 'inspired',
+  // mischievous
+  evil: 'mischievous', mischievous: 'mischievous', wicked: 'mischievous', devious: 'mischievous',
+  cunning: 'mischievous', villainous: 'mischievous', scheming: 'mischievous', sly: 'mischievous',
+  naughty: 'mischievous', sneaky: 'mischievous', sinister: 'mischievous',
 };
 
 const REASONS: Partial<Record<MoodKey, Partial<Record<string, string>>>> = {
@@ -251,6 +262,12 @@ const REASONS: Partial<Record<MoodKey, Partial<Record<string, string>>>> = {
     hopeful: "Quietly powerful. Readers say it gave them back their sense of possibility.",
     emotional: "Moves you deeply, then leaves you energised rather than drained.",
     reflective: "Turns inward to find something uplifting — a rarer, more honest kind of inspiration.",
+  },
+  mischievous: {
+    dark: "Deliciously dark and morally murky — perfect for when you're feeling a little villainous.",
+    mysterious: "Full of schemes and secrets. The kind of book that makes you feel cleverly in on it.",
+    funny: "Sharp, witty, and a little wicked. Exactly the right kind of trouble.",
+    adventurous: "Bold and audacious — for when you want to root for the rogue.",
   },
 };
 

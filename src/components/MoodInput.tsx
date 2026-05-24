@@ -18,13 +18,12 @@ export default function MoodInput({ onSubmit, loading }: MoodInputProps) {
       <label className="mood-label" htmlFor="mood-input">
         How are you feeling today?
       </label>
-      <textarea
+      <input
         id="mood-input"
         className="mood-textarea"
         value={value}
         onChange={e => setValue(e.target.value)}
-        placeholder="e.g. I'm feeling a bit sad and nostalgic today…"
-        rows={3}
+        placeholder="e.g. Nostalgic"
         disabled={loading}
       />
       <button

@@ -4,6 +4,7 @@ import MoodInput from './components/MoodInput';
 import Recommendations from './components/Recommendations';
 import { detectMood, type Mood } from './lib/moodMapper';
 import { fetchBooksByTags, pickRecommendations, type Book } from './lib/hardcoverApi';
+import Footer from './components/Footer';
 
 type State =
   | { status: 'idle' }
@@ -45,11 +46,11 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-inner">
-          <span className="logo-icon">📚</span>
+          <a href='/'><span className="logo-icon"></span>
           <div>
             <h1 className="app-title">Moodreads</h1>
-            <p className="app-subtitle">Books matched to how you feel</p>
-          </div>
+            <p className="app-subtitle">A book for your mood</p>
+          </div></a>
         </div>
       </header>
 
@@ -57,12 +58,10 @@ export default function App() {
         {(state.status === 'idle' || state.status === 'loading') && (
           <div className="hero">
             <div className="hero-text">
-              <h2 className="hero-heading">
-                Tell us how you feel,<br />we'll find your next read.
-              </h2>
-              <p className="hero-desc">
-                Describe your mood in a few words and get a personalised book recommendation powered by Hardcover.
-              </p>
+              <h3 className="hero-heading">
+                A read based on your mood.
+              </h3>
+  
             </div>
             <MoodInput onSubmit={handleSubmit} loading={state.status === 'loading'} />
           </div>
@@ -97,10 +96,7 @@ export default function App() {
           </div>
         )}
       </main>
-
-      <footer className="app-footer">
-        <p>Powered by <a href="https://hardcover.app" target="_blank" rel="noopener noreferrer">Hardcover</a></p>
-      </footer>
+        <Footer />
     </div>
   );
 }

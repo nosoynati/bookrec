@@ -20,11 +20,11 @@ export default function Recommendations({ mood, primary, secondary, onReset }: R
 
       <p className="mood-message">{mood.message}</p>
 
-      <div className="reco-tags">
+      {/* <div className="reco-tags">
         {mood.tags.slice(0, 5).map(tag => (
           <span key={tag} className="tag">#{tag}</span>
         ))}
-      </div>
+      </div> */}
 
       <div className="primary-slot">
         <p className="slot-label">Your main read</p>

@@ -149,7 +149,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ── Recommendations ── */
@@ -401,13 +403,39 @@
   color: var(--primary);
   font-weight: 600;
 }
+.wrapper-footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  @media (width < 520px) {
+    flex-direction: column;
+    & .divider {
+      display: none;
+    }
+  }
+}
+footer .copy {
+  position: relative;
+  display: block;
+}
+footer .copy::before {
+  content: "";
+  display: none;
+  width: 70%;
+  margin: auto;
+  height: 1px;
+  background-color: #fca5a5bb;
+  margin-bottom: 8px;
 
+} 
 /* ── Responsive ── */
 @media (max-width: 520px) {
   .secondary-row {
     grid-template-columns: 1fr;
   }
-
+  footer .copy::before {
+    display: block;
+  }
   .book-card--primary {
     flex-direction: column;
   }

@@ -40,6 +40,16 @@ const BOOKS_BY_MOOD_QUERY = `
             }
           }
           { rating: { _gte: 3.5 } }
+          {
+            _not: {
+              taggings: {
+                tag: {
+                  tag_category_id: { _eq: 1 }
+                  slug: { _eq: "comics-graphic-novels" }
+                }
+              }
+            }
+          }
         ]
       }
       order_by: [{ ratings_count: desc_nulls_last }]
