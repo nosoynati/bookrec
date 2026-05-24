@@ -8,4 +8,13 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  server: {
+    proxy: {
+      '/api/graphql': {
+        target: 'https://api.hardcover.app',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api\/graphql/, '/v1/graphql'),
+      },
+    },
+  },
 })

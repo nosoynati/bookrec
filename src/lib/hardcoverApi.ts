@@ -1,4 +1,4 @@
-const API_URL = 'https://api.hardcover.app/v1/graphql';
+const API_URL = '/api/graphql';
 const API_KEY = import.meta.env.VITE_HARDCOVER_API_KEY as string;
 
 export interface Book {
