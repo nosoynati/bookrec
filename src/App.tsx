@@ -4,10 +4,12 @@ import './App.css';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import RecommendationsPage from './pages/RecommendationsPage';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   return (
     <div className="app">
+      <Analytics />
       <header className="app-header">
         <div className="header-inner">
           <Link to="/"><span className="logo-icon"></span>
