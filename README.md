@@ -1,4 +1,5 @@
 ## A mood a book
 
-Recommend a book based on youir mood
-Uses Hardcover API
+A book recommendation based on your mood
+
+Powered by Hardcover API
