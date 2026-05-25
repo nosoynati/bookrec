@@ -307,7 +307,7 @@ export function detectMood(input: string): Mood {
   }
 
   const best = (Object.entries(scores) as [MoodKey, number][]).sort((a, b) => b[1] - a[1])[0];
-  const key: MoodKey = best?.[0] ?? 'inspired';
+  const key: MoodKey = best?.[0] ?? '';
 
   return { key, ...MOODS[key] };
 }

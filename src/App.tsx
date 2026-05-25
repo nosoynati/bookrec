@@ -13,8 +13,8 @@ export default function App() {
           <Link to="/"><span className="logo-icon"></span>
           <div>
             <h1 className="app-title">Moodreads</h1>
-            <p className="app-subtitle">A book for your mood</p>
-          </div></Link>
+          </div>
+          </Link>
         </div>
       </header>
 

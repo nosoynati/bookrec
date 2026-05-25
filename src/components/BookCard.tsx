@@ -32,7 +32,6 @@ export default function BookCard({ book, reason, primary = false }: BookCardProp
       </div>
       <div className="book-info">
         <p className="book-title">{book.title}</p>
-        {book.subtitle && <p className="book-subtitle">{book.subtitle}</p>}
         {book.rating != null && <StarRating rating={book.rating} />}
         <p className="book-reason">{reason}</p>
         <span className="book-link">View on Hardcover →</span>

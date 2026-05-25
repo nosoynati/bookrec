@@ -1,16 +1,25 @@
-import type { Book } from '../lib/hardcoverApi';
-import type { Mood } from '../lib/moodMapper';
-import { getRecommendationReason } from '../lib/moodMapper';
-import BookCard from './BookCard';
+import type { Book } from "../lib/hardcoverApi";
+import type { Mood } from "../lib/moodMapper";
+import { getRecommendationReason } from "../lib/moodMapper";
+import BookCard from "./BookCard";
 
 interface RecommendationsProps {
   mood: Mood;
   primary: Book;
   secondary: [Book, Book];
   onReset: () => void;
+  onShuffle: () => Promise<void>;
+  shuffling: boolean;
 }
 
-export default function Recommendations({ mood, primary, secondary, onReset }: RecommendationsProps) {
+export default function Recommendations({
+  mood,
+  primary,
+  secondary,
+  onReset,
+  onShuffle,
+  shuffling,
+}: RecommendationsProps) {
   return (
     <section className="recommendations">
       <div className="mood-badge">
@@ -38,7 +47,7 @@ export default function Recommendations({ mood, primary, secondary, onReset }: R
       <div className="secondary-grid">
         <p className="slot-label">You might also like</p>
         <div className="secondary-row">
-          {secondary.map(book => (
+          {secondary.map((book) => (
             <BookCard
               key={book.id}
               book={book}
@@ -47,10 +56,14 @@ export default function Recommendations({ mood, primary, secondary, onReset }: R
           ))}
         </div>
       </div>
-
-      <button className="reset-btn" onClick={onReset}>
-        Try a different feeling
-      </button>
+      <div className="btn-row">
+        <button className="shuffle-btn" onClick={onShuffle} disabled={shuffling}>
+          {shuffling ? 'Shuffling…' : 'Shuffle'}
+        </button>
+        <button className="reset-btn" onClick={onReset}>
+          Try a different feeling
+        </button>
+      </div>
     </section>
   );
 }
