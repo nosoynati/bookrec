@@ -35,14 +35,10 @@
 
 .app-title {
   font-size: 1.25rem;
-  font-weight: 700;
+  font-family: var(--app-title);
+  font-weight:normal;
   color: var(--text);
   letter-spacing: -0.02em;
-}
-
-.app-subtitle {
-  font-size: 0.8rem;
-  color: var(--text-muted);
 }
 
 /* ── Hero ── */
@@ -56,8 +52,8 @@
 }
 
 .hero-heading {
-  font-size: clamp(1.75rem, 5vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(1.25rem, 5vw, 2.25rem);
+  font-family: "Roboto Mono Bold";
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--text);
